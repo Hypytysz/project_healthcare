@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Hypytyszownia</title>
+</head>
+<body>
+
+    <h2>Pomiary ciśnienia wynonane w django</h2>
+    <ul>
+        <li><a href="{% url 'Homepage' %}">Strona Główna</a></li>
+        <li><a href="{% url 'dodaj' %}">Dodaj nowy pomiar</a></li>
+        <li><a href="{% url 'lista_pomiarow' %}">Lista wszystkich pomiarow</a></li>
+
+    </ul>
+
+<!--    <table border="0px" width="70%">-->
+<!--  {% for x in listaPomiarow %}-->
+<!--  <tr style="text-align:center;">-->
+<!--    <td style="text-align:left;font-size:14pt;">-->
+<!--       <p class="br">{{x.create_date}}-->
+<!--       <p class="br">Systolic: {{x.systolic}}-->
+<!--        <p class="br">Diastolic: {{x.diastolic}}-->
+<!--       <p class="br">Pulse: {{x.pulse}}-->
+<!--        <p class="br">Description: {{x.description}}-->
+<!--        <p class="br">Update date: {{x.update_date}}-->
+<!--       <p class="br"><a href="{% url 'usun' pk=x.pk %}">usun</a>-->
+<!--    </td>-->
+<!--    <td width="50%">{% if apartment.pathToPicture %} <img src="media/{{apartment.pathToPicture}}" width="600px" />{% endif %}-->
+<!--    </td>-->
+<!--  </tr>-->
+<!--  {% endfor %}-->
+<!--    </table>-->
+    {% for x in listaPomiarow %}
+
+        <div>
+            <p>
+                <b>create date:</b> <a href="{% url 'edytuj' pk=x.pk %}">{{x.create_date}}</a>
+                <b>systolic:</b> {{x.systolic}} <b>diastolic:</b> {{x.diastolic}} <b>pulse:</b> {{x.pulse}}
+                <b>description:</b> {{x.description}}
+                <b>update date:</b> {{x.update_date}}
+                <a href="{% url 'usun' pk=x.pk %}">usun</a>
+            </p>
+        </div>
+        <hr/>
+
+    {% endfor %}
+
+</body>
+</html>
