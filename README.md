@@ -18,3 +18,15 @@ w przypadku windowsa "source venv/Scripts/activate"
 - używamy komendy "pip install django"
 ## Tworzenie projektu
 - projekt tworzymy komendą "django-admin startproject healthcare"
+- dodajemy aplikację komendą "django-admin startapp bloodpressure"
+- tworzymy model
+- w urls do importów obok path dodajemy include oraz 
+  path("", include('bloodpressure.urls')),
+- tworzymy urls w bloodpressure, gdzie importujemy
+  from . import views
+  oraz tworzymy ścieżki
+- dodajemy funkcję do views, które będą obsługiwały naszą aplikację
+- dodajemy templates, a w nich szablony
+- tworzymy plik forms
+- przygotowujemy migrację "python manage.py makemigration"
+- wykonujemy migrację "python manage.py migration"
